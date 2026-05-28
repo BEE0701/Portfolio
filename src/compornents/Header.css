@@ -15,8 +15,14 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 999;
   font-family: 'RomanticGumi', sans-serif;
+}
+header.hide {
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
 }
 #logo{
     width: 120px;

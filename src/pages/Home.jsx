@@ -1,6 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import "./Home.css";
 
+import htmlIcon from "../assets/images/html-5-svgrepo-com.svg";
+import cssIcon from "../assets/images/css-3-svgrepo-com.svg";
+import jsIcon from "../assets/images/js-svgrepo-com.svg";
+import jqueryIcon from "../assets/images/jquery-svgrepo-com.svg";
+import nodeIcon from "../assets/images/node-js-svgrepo-com.svg";
+import reactIcon from "../assets/images/react-svgrepo-com.svg";
+import githubIcon from "../assets/images/github-svgrepo-com.svg";
+import figmaIcon from "../assets/images/figma-svgrepo-com.svg";
+import illustratorIcon from "../assets/images/adobe-illustrator-svgrepo-com.svg";
+import photoshopIcon from "../assets/images/adobe-photoshop-svgrepo-com.svg";
+import instagramIcon from "../assets/images/instagram.svg";
 import ssgLanders from "../assets/images/ssgLanders.png";
 import oozyCoffee from "../assets/images/ozzyCoffee.png";
 import lotteWorld from "../assets/images/lotteWorld.png";
@@ -279,47 +290,47 @@ const nextProject = () => {
 
         <div className="skillCards">
           <div className="skillCard">
-            <img src="./src/assets/images/html-5-svgrepo-com.svg" alt="HTML" />
+            <img src={htmlIcon} alt="HTML" />
             <span>HTML</span>
           </div>
 
           <div className="skillCard">
-            <img src="./src/assets/images/css-3-svgrepo-com.svg" alt="CSS" />
+           <img src={cssIcon} alt="CSS" />
             <span>CSS</span>
           </div>
 
           <div className="skillCard">
-            <img src="./src/assets/images/js-svgrepo-com.svg" alt="JavaScript" />
+           <img src={jsIcon} alt="JavaScript" />
             <span>JavaScript</span>
           </div>
           <div className="skillCard">
-            <img src="./src/assets/images/jquery-svgrepo-com.svg" alt="jquery" />
+            <img src={jqueryIcon} alt="jquery" />
             <span>Jquery</span>
           </div>
           <div className="skillCard">
-            <img src="./src/assets/images/node-js-svgrepo-com.svg" alt="Node.js" />
+            <img src={nodeIcon} alt="Node.js" />
             <span>Node.js</span>
           </div>
           <div className="skillCard">
-            <img src="./src/assets/images/react-svgrepo-com.svg" alt="React" />
+            <img src={reactIcon} alt="React" />
             <span>React</span>
           </div>
 
           <div className="skillCard">
-            <img src="./src/assets/images/github-svgrepo-com.svg" alt="GitHub" />
+            <img src={githubIcon} alt="GitHub" />
             <span>GitHub</span>
           </div>
 
           <div className="skillCard">
-            <img src="./src/assets/images/figma-svgrepo-com.svg" alt="Figma" />
+            <img src={figmaIcon} alt="Figma" />
             <span>Figma</span>
           </div>
           <div className="skillCard">
-            <img src="./src/assets/images/adobe-illustrator-svgrepo-com.svg" alt="Illustrator" />
+            <img src={illustratorIcon} alt="Illustrator" />
             <span>Illustrator</span>
           </div>
           <div className="skillCard">
-            <img src="./src/assets/images/adobe-photoshop-svgrepo-com.svg" alt="Photoshop" />
+            <img src={photoshopIcon} alt="Photoshop" />
             <span>Photoshop</span>
           </div>
         </div>
@@ -422,7 +433,7 @@ const nextProject = () => {
 
       <a href="https://github.com/" className="contactItem">
         <div className="contactIcon">
-          <img src="./src/assets/images/github-svgrepo-com.svg" alt="" />
+         <img src={githubIcon} alt="" />
         </div>
 
         <strong>GITHUB</strong>
@@ -432,8 +443,7 @@ const nextProject = () => {
 
       <a href="https://instagram.com/" className="contactItem">
         <div className="contactIcon">
-          {/* instagram 로고 넣는 곳 */}
-          <img src="./src/assets/images/instagram.svg" alt="" />
+          <img src={instagramIcon} alt="" />
         </div>
 
         <strong>INSTAGRAM</strong>
