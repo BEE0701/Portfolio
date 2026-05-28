@@ -1,6 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import "./Home.css";
 
+import ssgLanders from "../assets/images/ssgLanders.png";
+import oozyCoffee from "../assets/images/ozzyCoffee.png";
+import lotteWorld from "../assets/images/lotteWorld.png";
+import zeroWaste from "../assets/images/zeroWaste.png";
+
+import ofMe1 from "../assets/images/ofMe1.jpg";
+import ofMe2 from "../assets/images/ofMe2.jpg";
+import ofMe3 from "../assets/images/ofMe3.jpg";
+import ofMe4 from "../assets/images/ofMe4.jpg";
 function Home() {
   const beeRef = useRef(null);
   const thumbRefs = useRef([]);
@@ -9,26 +18,25 @@ function Home() {
 const projects = [
   {
     title: "SSG LANDERS",
-    img: "./src/assets/images/ssgLanders.png",
+    img: ssgLanders,
     link: "#",
   },
   {
     title: "OOZY",
-    img: "./src/assets/images/ozzyCoffee.png",
+    img: oozyCoffee,
     link: "#",
   },
   {
     title: "LOTTE",
-    img: "./src/assets/images/lotteWorld.png",
+    img: lotteWorld,
     link: "#",
   },
   {
     title: "RE:ZERO",
-    img: "./src/assets/images/zeroWaste.png",
+    img: zeroWaste,
     link: "#",
   },
 ];
-
 const prevProject = () => {
   setActiveProject((prev) =>
     prev === 0 ? projects.length - 1 : prev - 1
@@ -247,19 +255,19 @@ const nextProject = () => {
 
           <div className="cards">
             <div className="hexCard hex1">
-              <img src="./src/assets/images/ofMe1.jpg" alt="" />
+              <img src={ofMe1} alt="" />
             </div>
 
             <div className="hexCard hex2">
-              <img src="./src/assets/images/ofMe2.jpg" alt="" />
+              <img src={ofMe2} alt="" />
             </div>
 
             <div className="hexCard hex3">
-              <img src="./src/assets/images/ofMe3.jpg" alt="" />
+              <img src={ofMe3} alt="" />
             </div>
 
             <div className="hexCard hex4">
-              <img src="./src/assets/images/ofMe4.jpg" alt="" />
+              <img src={ofMe4} alt="" />
             </div>
           </div>
         </div>
