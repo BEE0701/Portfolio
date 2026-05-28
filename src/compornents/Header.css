@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'RomanticGumi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/GumiRomanceTTF.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+  box-sizing: border-box;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  font-family: 'RomanticGumi', sans-serif;
+}
+#logo{
+    width: 120px;
+}
+#logo img{width: 100%;}
+
+ul {
+    display: flex;
+    gap: 30px;
+}
+header ul li a{
+    color: var(--lightYellow);
+    font-family: 'RomanticGumi', sans-serif;
+    font-size: 20px;
+    position: relative;
+    z-index: 9;
+}
+
+@media screen and (max-width:1000px) {
+  header{
+    padding: 20px 6vw;
+  }
+  header #logo{
+    width: 11vw;
+
+  }
+  header ul{
+    display: none;
+  }
+}

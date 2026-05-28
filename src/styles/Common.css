@@ -1,0 +1,24 @@
+
+@font-face {
+    font-family: 'RomanticGumi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/GumiRomanceTTF.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+@font-face {
+  font-family: 'RomanticGumi';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2410-1@1.0/GumiRomanceTTF.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
+
+
+ a{text-decoration: none;}
+ li{list-style: none;}
+ :root{
+    --lightGray:#242526;
+    --darkGray:#1b1b1c;
+    --black:#0b0c0d;
+    --lightYellow:#FBB902;
+    --deepYellow:#F3AA00;
+ }
