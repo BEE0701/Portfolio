@@ -15,7 +15,7 @@ function Header() {
       const scrollY = window.scrollY;
 
       setHideHeader(scrollY > homeHeight - 100);
-    };
+    };  
 
     handleScroll();
 
