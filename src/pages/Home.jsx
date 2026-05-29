@@ -24,41 +24,42 @@ import ofMe4 from "../assets/images/ofMe4.jpg";
 function Home() {
   const beeRef = useRef(null);
   const thumbRefs = useRef([]);
+  const isFirstRender = useRef(true);
   const [activeProject, setActiveProject] = useState(0);
+  const projects = [
+    {
+      title: "SSG LANDERS",
+      img: ssgLanders,
+      link: " https://bee0701.github.io/SSG-LANDERS/",
+    },
+    {
+      title: "OOZY",
+      img: oozyCoffee,
+      link: "https://bee0701.github.io/OOZY_COFFEE/",
+    },
+    {
+      title: "LOTTE",
+      img: lotteWorld,
+      link: " https://bee0701.github.io/lotte_wolrd/",
+    },
+    {
+      title: "RE:ZERO",
+      img: zeroWaste,
+      link: "https://bee0701.github.io/rezero_waste/",
+      
+    },
+  ];
+  const prevProject = () => {
+    setActiveProject((prev) =>
+      prev === 0 ? projects.length - 1 : prev - 1
+    );
+  };
 
-const projects = [
-  {
-    title: "SSG LANDERS",
-    img: ssgLanders,
-    link: "#",
-  },
-  {
-    title: "OOZY",
-    img: oozyCoffee,
-    link: "#",
-  },
-  {
-    title: "LOTTE",
-    img: lotteWorld,
-    link: "#",
-  },
-  {
-    title: "RE:ZERO",
-    img: zeroWaste,
-    link: "#",
-  },
-];
-const prevProject = () => {
-  setActiveProject((prev) =>
-    prev === 0 ? projects.length - 1 : prev - 1
-  );
-};
-
-const nextProject = () => {
-  setActiveProject((prev) =>
-    prev === projects.length - 1 ? 0 : prev + 1
-  );
-};
+  const nextProject = () => {
+    setActiveProject((prev) =>
+      prev === projects.length - 1 ? 0 : prev + 1
+    );
+  };
   useEffect(() => {
     const beeOutline = beeRef.current.querySelectorAll(".bee-outline");
     const beeDetails = beeRef.current.querySelectorAll(".bee-detail");
@@ -103,7 +104,7 @@ const nextProject = () => {
         ],
         {
           duration,
-          easing: "linear",
+          easing: "ease-in-out",
           fill: "forwards",
         }
       );
@@ -149,13 +150,20 @@ const nextProject = () => {
     };
   }, []);
   useEffect(() => {
+  if (isFirstRender.current) {
+    isFirstRender.current = false;
+    return;
+  }
+
   thumbRefs.current[activeProject]?.scrollIntoView({
     behavior: "smooth",
     inline: "center",
     block: "nearest",
   });
 }, [activeProject]);
-  
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
   //home  
 
 
@@ -295,12 +303,12 @@ const nextProject = () => {
           </div>
 
           <div className="skillCard">
-           <img src={cssIcon} alt="CSS" />
+            <img src={cssIcon} alt="CSS" />
             <span>CSS</span>
           </div>
 
           <div className="skillCard">
-           <img src={jsIcon} alt="JavaScript" />
+            <img src={jsIcon} alt="JavaScript" />
             <span>JavaScript</span>
           </div>
           <div className="skillCard">
@@ -337,125 +345,125 @@ const nextProject = () => {
       </section>
       <section id="projects">
         <div className="projectInner">
-    <div className="projectLeft">
-      <h2>Projects</h2>
+          <div className="projectLeft">
+            <h2>Projects</h2>
 
-      <div className="projectInfo">
-        <strong>{String(activeProject + 1).padStart(2, "0")}</strong>
+            <div className="projectInfo">
+              <strong>{String(activeProject + 1).padStart(2, "0")}</strong>
 
-        <div className="projectLine"></div>
+              <div className="projectLine"></div>
 
-        <div>
-          <h3>{projects[activeProject].title}</h3>
+              <div>
+                <h3>{projects[activeProject].title}</h3>
 
-          <a href={projects[activeProject].link}>
-            View Project <span>↗</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <div className="projectRight">
-      <div className="bigHex">
-        {projects[activeProject].img ? (
-          <img
-            src={projects[activeProject].img}
-            alt={projects[activeProject].title}
-          />
-        ) : (
-          <span>LOGO</span>
-        )}
-      </div>
-
-      <div className="hexNumber">
-        {String(activeProject + 1).padStart(2, "0")}
-      </div>
-    </div>
-  </div>
-
-  <div className="projectBottom">
-    <button type="button" onClick={prevProject} className="slideBtn">
-      ‹
-    </button>
-
-    <div className="thumbList">
-      {projects.map((project, index) => (
-        <button
-  type="button"
-  key={index}
-  ref={(el) => (thumbRefs.current[index] = el)}
-  className={`thumbItem ${activeProject === index ? "active" : ""}`}
-  onClick={() => setActiveProject(index)}
->
-          <div className="thumbHex">
-            {project.img ? (
-              <img src={project.img} alt={project.title} />
-            ) : (
-              <span>LOGO</span>
-            )}
+                <a href={projects[activeProject].link}>
+                  View Project <span>↗</span>
+                </a>
+              </div>
+            </div>
           </div>
 
-          <p>
-            {String(index + 1).padStart(2, "0")} {project.title}
-          </p>
-        </button>
-      ))}
-    </div>
+          <div className="projectRight">
+            <div className="bigHex">
+              {projects[activeProject].img ? (
+                <img
+                  src={projects[activeProject].img}
+                  alt={projects[activeProject].title}
+                />
+              ) : (
+                <span>LOGO</span>
+              )}
+            </div>
 
-    <button type="button" onClick={nextProject} className="slideBtn">
-      ›
-    </button>
-  </div>
+            <div className="hexNumber">
+              {String(activeProject + 1).padStart(2, "0")}
+            </div>
+          </div>
+        </div>
+
+        <div className="projectBottom">
+          <button type="button" onClick={prevProject} className="slideBtn">
+            ‹
+          </button>
+
+          <div className="thumbList">
+            {projects.map((project, index) => (
+              <button
+                type="button"
+                key={index}
+                ref={(el) => (thumbRefs.current[index] = el)}
+                className={`thumbItem ${activeProject === index ? "active" : ""}`}
+                onClick={() => setActiveProject(index)}
+              >
+                <div className="thumbHex">
+                  {project.img ? (
+                    <img src={project.img} alt={project.title} />
+                  ) : (
+                    <span>LOGO</span>
+                  )}
+                </div>
+
+                <p>
+                  {String(index + 1).padStart(2, "0")} {project.title}
+                </p>
+              </button>
+            ))}
+          </div>
+
+          <button type="button" onClick={nextProject} className="slideBtn">
+            ›
+          </button>
+        </div>
       </section>
 
       <section id="contect">
-         <div className="contactContent">
-    <h2>CONTACT</h2>
+        <div className="contactContent">
+          <h2>CONTACT</h2>
 
-    <p>
-      새로운 경험을 함께 만들고 싶어요.
-      <br />
-      연락 기다릴게요!
-    </p>
+          <p>
+            새로운 경험을 함께 만들고 싶어요.
+            <br />
+            연락 기다릴게요!
+          </p>
 
-    <span className="contactHeart">♡</span>
+          <span className="contactHeart">♡</span>
 
-    <div className="contactList">
-      <a href="mailto:bee.choi.dev@gmail.com" className="contactItem">
-        <div className="contactIcon">
-          ✉
+          <div className="contactList">
+            <a href="mailto:bee.choi.dev@gmail.com" className="contactItem">
+              <div className="contactIcon">
+                ✉
+              </div>
+
+              <strong>EMAIL</strong>
+
+              <span>x823429331158@gmail.com</span>
+            </a>
+
+            <a href="https://github.com/" className="contactItem">
+              <div className="contactIcon">
+                <img src={githubIcon} alt="" />
+              </div>
+
+              <strong>GITHUB</strong>
+
+              <span>https://github.com/BEE0701</span>
+            </a>
+
+            <a href="https://instagram.com/" className="contactItem">
+              <div className="contactIcon">
+                <img src={instagramIcon} alt="" />
+              </div>
+
+              <strong>INSTAGRAM</strong>
+
+              <span>https://www.instagram.com/cu_he_hi_joy/</span>
+            </a>
+          </div>
         </div>
 
-        <strong>EMAIL</strong>
-
-        <span>x823429331158@gmail.com</span>
-      </a>
-
-      <a href="https://github.com/" className="contactItem">
-        <div className="contactIcon">
-         <img src={githubIcon} alt="" />
-        </div>
-
-        <strong>GITHUB</strong>
-
-        <span>https://github.com/BEE0701</span>
-      </a>
-
-      <a href="https://instagram.com/" className="contactItem">
-        <div className="contactIcon">
-          <img src={instagramIcon} alt="" />
-        </div>
-
-        <strong>INSTAGRAM</strong>
-
-        <span>https://www.instagram.com/cu_he_hi_joy/</span>
-      </a>
-    </div>
-  </div>
-
-  <footer className="contactFooter">
-    © 2026 Bee Choi Portfolio. All rights reserved.
-  </footer>
+        <footer className="contactFooter">
+          © 2026 Bee Choi Portfolio. All rights reserved.
+        </footer>
       </section>
     </>
   );
